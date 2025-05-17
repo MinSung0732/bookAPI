@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+.book-item {
+	margin-bottom: 20px;
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.book-title {
+	color: #2c3e50;
+	font-weight: bold;
+}
+
+.book-author, .book-publisher, .book-pubdate {
+	color: #7f8c8d;
+	font-size: 0.9em;
+}
+
+.book-description {
+	margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.5em;
+    max-height: 4.5em; /* line-height * 3 */
+}
+
+.book-description.expanded {
+    display: block;
+    max-height: none;
+    -webkit-line-clamp: initial;
+}
+
+.read-more {
+	cursor:pointer;
+	font-size: 0.9em;
+	color: #7f8c8d;
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.pagination a {
+	margin: 0 5px;
+	padding: 5px 10px;
+	border: 1px solid #ddd;
+	color: #333;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+	font-weight: bold;
+}
+
+.pagination a:hover:not(.active):not(.disabled) {
+	background-color: #ddd;
+}
+
+.pagination a.disabled {
+	color: #ccc;
+	cursor: default;
+}
+
+#searchDiv {
+	margin-top: 20px;
+}
+
+#paginationDiv {
+	padding-top: 50px;
+}
+
+a:hover {
+	background-color: #ddd;
+}
+
+a {
+	text-decoration: none;
+}

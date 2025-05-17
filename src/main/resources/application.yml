@@ -1,0 +1,54 @@
+server:
+    port: 8080
+    servlet:
+      context-path: /
+      encoding:
+        charset: UTF-8
+        enabled: true
+        force: true
+    tomcat:
+      max-http-header-size: 65536
+    error:
+      whitelabel:
+        enabled: false
+      path: /error
+      include-message: always
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/bookapi/
+      suffix: .jsp
+  datasource:
+   url: jdbc:mysql://localhost:3306/book_api_db?serverTimezone=Asia/Seoul
+   username: root
+   password: root
+   driver-class-name: com.mysql.cj.jdbc.Driver
+#  autoconfigure:
+#    exclude: 
+#    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: johyeonhwak@gmail.com
+    password: qygj hldm rkkm zfqm
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mybatis/**/mapper/**/*.xml
+
+naver:
+  client:
+    id: "Pnt5FYTqQjnefYbUvna4"
+    secret: "29BWBS9S3M"
+
+aladin:
+  TTBKey: "ttbalarm1531646001"
