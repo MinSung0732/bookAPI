@@ -19,7 +19,7 @@
 			<option value="sim" selected>정확순</option>
 			<option value="date">날짜순</option>
 		</select>
-		<button id="submit">검색</button>
+		<button id="submit">검색2</button>
 		
 		<div id="searchDiv">
 			
