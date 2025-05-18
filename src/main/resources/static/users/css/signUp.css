@@ -1,1 +1,199 @@
 @charset "UTF-8";
+
+* {
+	font-family: "Ownglyph PDH";
+	box-sizing: border-box;
+}
+
+input[type="text"], input[type="password"], input[type="date"] {
+	padding: 0 10px;
+	border: solid 1px #BCA895;
+	border-radius: 20px;
+	outline: none;
+	width: 191px;
+	height: 40px;
+	font-size: 20px;
+	box-sizing: border-box;
+}
+
+input:focus {
+	color: #716559;
+}
+
+.signUp {
+	font-size: 21px;
+	width: 700px;
+	margin: 0 auto;
+	padding-left: 13rem;
+}
+
+.signUp h4 {
+	font-weight: 300;
+	margin: 6px 0;
+}
+
+.menuTitle {
+	font-size: 32px;
+	font-weight: 300;
+	margin: 42px auto 16px auto;
+}
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #C0BAA7;
+}
+
+input::-moz-placeholder { /* Firefox 19+ */
+	color: #C0BAA7;
+}
+
+input:-ms-input-placeholder { /* IE 10+ */
+	color: #C0BAA7;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+	color: #C0BAA7;
+}
+
+.selectMailWrap {
+	display: inline-block;
+}
+
+.selectMailWrap #selectMail {
+	width: 129px;
+	padding: 10px;
+	font-size: 20px;
+	border: 1px solid #BCA895;
+	border-radius: 40px;
+	background-color: white;
+	color: #333;
+	-moz-appearance: none;
+	font-size: 20px;
+}
+
+/* select 박스가 포커스될 때 스타일 */
+.selectMailWrap #selectMail:focus {
+	border-color: #716559;
+	outline: none;
+}
+
+input[type='radio'] {
+	-moz-appearance: none;
+	appearance: none;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	cursor: pointer;
+	border: 1px solid #BCA895;
+	margin-left: 7px;
+}
+
+input[type="radio"]:checked {
+	background: #BCA895;
+	box-shadow: 0 0 0 1px #BCA895;
+	border: 2px solid #fff;
+}
+
+input[type="radio"]:hover {
+	box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+	cursor: pointer;
+}
+
+.btnStylePrimary {
+	background: #BCA895;
+	padding: 8px 18px;
+	color: #fff;
+	height: 42px;
+	border-radius: 40px;
+	border: none;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.btnStylePrimary:hover {
+	background: #716559;
+	transition-duration: 0.1s;
+	transition-delay: 0.05s;
+}
+
+.btnStyleSolid {
+	background: #fff;
+	border: 1px solid #BCA895;
+	padding: 8px 26px;
+	color: #BCA895;
+}
+
+.btnStyleSolid:hover {
+	background: #fff;
+	border-color: #716559;
+	color: #716559;
+}
+
+.btnStyleBottom {
+	width: 189px;
+	margin-top: 26px;
+}
+
+.gender {
+	margin-bottom: 8px;
+}
+
+.catbook {
+	margin: 60px auto 0 auto;
+	width: 99px;
+	display: flex;
+}
+
+.signUp .eMailForward {
+	width: 148px;
+}
+
+.genderSelect {
+	font-size: 18px;
+	display: inline;
+	margin: 0;
+}
+
+.sublogo {
+	width: 206px;
+	margin-top: 129px;
+}
+
+input[type="checkbox"] {
+	-moz-appearance: none;
+	appearance: none;
+	border: 1px solid #BCA895;
+	width: 15px;
+	height: 15px;
+	border-radius: 3px;
+	display: inline;
+}
+
+.signInTexts{
+	display:flex;
+	align-items:center;
+	margin-top:4px;
+}
+.signInTexts .signInText {
+	position: relative;
+	margin-right:40px;
+}
+
+.signInTexts .signInText:after {
+	width: 2px;
+	position: absolute;
+	right: -30%;
+	bottom:2px;
+	height: 15px;
+	background: #BCA895;
+	content: '';
+	display: block;
+}
+
+.signInTexts .signInCheck {
+	position: relative;
+	margin-left:12px;
+}
+
+.block{
+	display:block;
+}

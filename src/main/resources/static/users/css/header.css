@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+* {
+	font-family: "Ownglyph PDH";
+	box-sizing: border-box;
+	font-size: 19px;
+}
+
+body {
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: inherit;
+}
+
+header {
+	display: flex;
+	flex-direction: row;
+	padding: 14px 16px;
+	height: 60px;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0px 4px 5px -5px rgb(0 0 0/ 36%);
+	border-bottom:1px solid #BCA895;
+}
+
+header ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+header ul li:not(:first-of-type) {
+	margin-left: 64px;
+}
+
+header ul li {
+	color: #BCA895;
+	position: relative;
+	cursor: pointer;
+}
+
+header div:nth-child(2) {
+	margin-left: 15rem;
+}
+
+header ul li:before {
+	width: 0%;
+	transition: width 0.3s;
+	transform: translateX(-50%);
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	height: 2px;
+	background: #BCA895;
+	content: '';
+	display: block;
+}
+
+header ul li:hover:before{
+	width:100%; transition: width 0.3s;
+}
+
+header ul li:hover{
+	color:#716559;
+}

@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+* {
+	font-family: "Ownglyph PDH";
+	box-sizing: border-box;
+	font-size: 19px;
+}
+
+body {
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+footer {
+	height: 143px;
+	border-top: 1px solid #BCA895;
+	padding-right: 16px;
+	box-shadow: 0px 4px 5px 3px rgb(0 0 0/ 36%);
+	margin-top: 37px;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(8, 14px)
+}
+
+footer h5 {
+	text-align: center;
+	font-weight: 300;
+	margin: 0;
+	grid-column: 1/7;
+	grid-row: 9/9;
+	height: fit-content;
+}
+
+footer p {
+	text-align: right;
+	grid-column: 6/7;
+	grid-row: 9/9;
+	height: fit-content;
+	margin: 0;
+}
