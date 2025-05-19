@@ -1,6 +1,7 @@
 package com.practice.bookApi.users.sign.web;
 
 import java.text.SimpleDateFormat;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,12 +25,11 @@ public class MyPageController {
 	@Autowired
 	MyPageService mypageService;
 	
+	// 마이페이지 JSP 이동 경로
 	@RequestMapping(value = "/myPage", method = {RequestMethod.GET})
-	public ModelAndView mypage(HttpSession session, Model model) {
+	public ModelAndView mypage(HttpSession session,
+								Model model) throws Exception {
 		
-		System.out.println("MyPageController 진입 ==> myPage 사용");
-		System.out.println(session.getAttribute("Login"));
-
 		ModelAndView mav = new ModelAndView("/users/myPage");
 		
 		String userId = (String) session.getAttribute("Login");
@@ -51,9 +51,10 @@ public class MyPageController {
 		return mav;
 	}
 	
+	// 비밀번호 재설정 컨트롤러
 	@RequestMapping(value = "/pwUpdate", method = RequestMethod.POST)
 	public ResponseEntity<?> pwUpdate(@RequestParam String newPw,
-										HttpSession session) {
+										HttpSession session) throws Exception {
 		
 		String userId = (String) session.getAttribute("Login");
 		Boolean verified = (Boolean) session.getAttribute("pwVerified");
@@ -70,6 +71,67 @@ public class MyPageController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("비밀번호 변경에 실패했습니다.");
 		}
 		
+	}
+	
+	// ID 찾기 JSP 이동 경로
+	@RequestMapping(value = "/findId", method = RequestMethod.GET)
+	public ModelAndView findid(HttpSession session) throws Exception {
+		
+		ModelAndView mav = new ModelAndView("/users/findId");
+		return mav;
+	}
+	
+	
+	// ID 찾기 ID 조회 및 반환
+	@RequestMapping(value = "/findId/getId", method = RequestMethod.POST)
+	public ResponseEntity<?> getUserId (HttpSession session) throws Exception {
+		
+		Boolean verified = (Boolean) session.getAttribute("findIdVerified");
+		String email = (String) session.getAttribute("findIdEmail");
+		
+		if (verified == null || !verified || email == null) {
+			return ResponseEntity.status(401).body(Map.of("result", 0, "message", "이메일 인증이 필요합니다."));
+		}
+		
+		UserDto user = mypageService.getUserByEmail(email);
+		if (user != null) {
+			return ResponseEntity.ok(Map.of("result", 1, "userId", user.getUserId()));
+		} else {
+			return ResponseEntity.status(404).body(Map.of("result", 0, "message", "해당 유저를 찾을 수 없습니다."));
+		}
+	}
+	
+	// Pw 찾기 JSP 이동 경로
+	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
+	public ModelAndView findPw(HttpSession session) throws Exception {
+		
+		ModelAndView mav = new ModelAndView("/users/findPw");
+		return mav;
+	}
+	
+	
+	// Pw 찾기 비밀번호 재설정
+	@RequestMapping(value = "/findPw/reset", method = RequestMethod.POST)
+	public ResponseEntity<?> resetPassword(@RequestParam String newPw,
+	                                       @RequestParam String userId,
+	                                       HttpSession session) throws Exception {
+	    String email = (String) session.getAttribute("findPwEmail");
+
+	    if (email == null) {
+	        return ResponseEntity.status(401).body(Map.of("result", 0, "message", "이메일 인증이 필요합니다."));
+	    }
+
+	    UserDto user = mypageService.getUserByIdAndEmail(userId, email);
+	    if (user == null) {
+	        return ResponseEntity.status(404).body(Map.of("result", 0, "message", "아이디와 이메일이 일치하지 않습니다."));
+	    }
+
+	    boolean updated = mypageService.findForUpdatePassword(userId, email, newPw);
+	    if (updated) {
+	        return ResponseEntity.ok(Map.of("result", 1));
+	    } else {
+	        return ResponseEntity.status(500).body(Map.of("result", 0, "message", "비밀번호 변경에 실패했습니다."));
+	    }
 	}
 
 }

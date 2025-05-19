@@ -14,7 +14,7 @@
 </head>
 <body>
 	<script src="/users/js/sign.js"></script>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="../util/header.jsp" />
 	<div id="container">
 		<img class="catbook" src="images/catbook.svg">
 		<div class="signUp">
@@ -76,7 +76,7 @@
 				class="btnStylePrimary btnStyleBottom btnStyleSolid">가입취소</button>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="../util/footer.jsp" />
 
 </body>
 </html>

@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${userDto.userName} 님의 마이페이지</title>
+<title>책:고 - ${userDto.userName} 님의 마이페이지</title>
 <link href="/users/css/signUp.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<script src="/users/js/myPage.js"></script>
 	<div id="container">
+		<jsp:include page="../util/header.jsp" />
 		<div id="userInfo">
 			<h2>${userDto.userName}님 반갑습니다!</h2>
 			회원 ID: <input type="text" id="userId" name="userId" value="${userDto.userId}" readonly><br>
@@ -36,6 +37,7 @@
 			주소지: ${userDto.userAddr1}<br>
 			추가 주소지: ${userDto.userAddr2}
 		</div>
+		<jsp:include page="../util/footer.jsp" />
 	</div>
 </body>
 </html>

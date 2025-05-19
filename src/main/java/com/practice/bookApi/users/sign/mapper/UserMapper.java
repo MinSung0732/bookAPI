@@ -18,5 +18,8 @@ public interface UserMapper {
 	public void keepLogin(Map<String, Object>map);
 	String selectUserNameById(String userId);
 	int updatePassword(@Param("userId") String userId, @Param("newPw") String newPw);
+	public UserDto findIdByEmail(String userMail);
+	public UserDto findByIdAndEmail(@Param("userId") String userId,@Param("userMail") String userMail);
+	int updateFindPassword(@Param("userId") String userId, @Param("userMail") String userMail, @Param("newPw") String newPw);
 
 }
