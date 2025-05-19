@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="/users/css/signUp.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="images/favicon.ico">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>로그인</title>
 </head>
@@ -28,11 +29,11 @@
 				<h4 class="signInText">아이디 찾기</h4>
 				<h4>비밀번호 찾기</h4>
 			</div>
-			<a href="/" class="block">
-				<button id="signInSubmit" class="btnStylePrimary btnStyleBottom">로그인</button>
+			<a href="/" class="block signScope signScopeTop">
+				<button id="signInSubmit" class="btnStylePrimary">로그인</button>
 			</a>
-			<a href="/users/signUpPage" class="block">
-				<button class="btnStylePrimary btnStyleBottom btnStyleSolid">회원가입</button>
+			<a href="/users/signUpPage" class="block signScopeTop">
+				<button class="btnStylePrimary btnStyleSolid">회원가입</button>
 			</a>
 		</div>
 	</div>

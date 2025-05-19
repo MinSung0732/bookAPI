@@ -33,7 +33,7 @@
 			
 			<input type="text" name="userMail" id="userMail" size="30"
 				class="eMailForward"> @
-			<input type="text" name="mail" id="mail" value="naver.com" readonly>
+			<input type="text" name="mail" id="mail" value="naver.com" class="eMailForward hide" readonly>
 			<div class="selectMailWrap">
 				<select name="selectMail" id="selectMail">
 					<option value="naver.com" selected>naver.com</option>
@@ -41,10 +41,13 @@
 					<option value="gmail.com">gmail.com</option>
 					<option value="userEmailInput">직접입력</option>
 				</select>
+				 <span class="icoArrow"><img src="images/arrow.svg" alt=""></span>
 			</div>
 			<button id="emailcheck" class="btnStylePrimary">인증번호 전송</button>
+			<div class="hide certified">
 			<h4>인증번호</h4>
 			<input type="text" name="emailCode" id="emailCode" size="5" disabled>
+			</div>
 			<button id="codeCk" style="display: none;" class="btnStylePrimary">인증확인</button>
 			<h4 class="gender">성별체크</h4>
 			<p class="genderSelect">M</p>
