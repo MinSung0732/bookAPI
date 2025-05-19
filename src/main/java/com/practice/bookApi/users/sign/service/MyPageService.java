@@ -24,6 +24,18 @@ public class MyPageService {
 		return userMapper.updatePassword(userId, encodedPw) > 0;
 	}
 	
+	public UserDto getUserByEmail(String userMail) {
+		return userMapper.findIdByEmail(userMail);
+	}
 	
+	public boolean findForUpdatePassword(String userId, String userMail, String newPw) {
+		System.out.println("Updating password for userId: " + userId + " and email: " + userMail);
+	    String encodedPw = pwEncoder.encode(newPw);
+	    return userMapper.updateFindPassword(userId, userMail, encodedPw) > 0;
+	}
+	
+	public UserDto getUserByIdAndEmail(String userId, String userMail) {
+		return userMapper.findByIdAndEmail(userId, userMail);
+	}
 	
 }

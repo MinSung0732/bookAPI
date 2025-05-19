@@ -8,10 +8,11 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="/users/css/userMain.css" rel="stylesheet" type="text/css">
 
-<title>도서 검색하기</title>
+<title>책:고 - 도서 검색하기</title>
 </head>
 <body>
 	<div id="container">
+		<jsp:include page="../util/header.jsp" />
 		<h2>도서 검색</h2>
 		${userDto.userName }님 어서오세요. 무엇을 도와드릴까요?<br><br>
 		<input type="search" id="searchBar" placeholder="제목 내용 검색"/>
@@ -28,6 +29,7 @@
 		<div id="paginationDiv" class="pagination">
 		
 		</div>
+		<jsp:include page="../util/footer.jsp" />
 	</div>
 	<script src="/users/js/userMain.js"></script>
 </body>

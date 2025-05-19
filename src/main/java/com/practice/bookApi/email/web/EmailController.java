@@ -26,6 +26,8 @@ public class EmailController {
 	@Autowired
 	private MyPageService mypageService;
 	
+	
+	// 회원가입 이메일 인증코드 발송 경로
 	@RequestMapping(value ="/sendCode", method = RequestMethod.POST)
 	public ResponseEntity<?> sendCode(@RequestParam String userMail,
 										HttpSession session) {
@@ -49,6 +51,7 @@ public class EmailController {
 		}
 	}
 	
+	// 회원가입 이메일 인증코드 확인 경로
 	@RequestMapping(value = "/verifyCode", method = RequestMethod.POST)
 	public ResponseEntity<?> verifyCode(@RequestParam String inputCode, HttpSession session) {
 		
@@ -62,6 +65,8 @@ public class EmailController {
 		}
 	}
 	
+	
+	// 마이페이지 비밀번호 변경 인증코드 발송 경로
 	@RequestMapping(value = "/pw/sendCode", method = RequestMethod.POST)
 	public ResponseEntity<?> sendPwCode(HttpSession session) {
 		String userId = (String) session.getAttribute("Login");
@@ -81,17 +86,85 @@ public class EmailController {
 		}
 	}
 	
+	
+	// 마이페이지 비밀번호 변경 인증코드 확인 경로
 	@RequestMapping(value = "/pw/verifyCode", method = RequestMethod.POST)
 	public ResponseEntity<?> verifyPwCode(@RequestParam String code,
 											HttpSession session) {
 		
 		String sessionCode = (String) session.getAttribute("pwAuthCode");
+		
 		if (code.equals(sessionCode)) {
 			session.setAttribute("pwVerified", true);
 			return ResponseEntity.ok("인증 성공");
 		} else {
 			return ResponseEntity.status(400).body("인증 실패");
 		}
+	}
+	
+	
+	// 로그인 회원 아이디 찾기 인증코드 발송 경로
+	@RequestMapping(value = "/findId/sendCode", method = RequestMethod.POST)
+	public ResponseEntity<?> sendIdCode (@RequestParam String userMail,
+											HttpSession session) throws Exception {
+		
+		String code = emailService.createCode();
+		EmailSendResult result = emailService.sendVerificationCode(userMail, code);
+		
+		if (result.isSuccess()) {
+			session.setAttribute("findIdAuthCode", code);
+			session.setAttribute("findIdEmail", userMail);
+			return ResponseEntity.ok(Map.of("result", 1, "message", "인증코드를 이메일로 보냈습니다."));
+		} else {
+			return ResponseEntity.status(500).body(Map.of("result", 0, "message", "이메일 전송 실패"));
+		}
+		
+	}
+	
+	
+	// 로그인 회원 아이디 찾기 인증코드 확인 경로
+	@RequestMapping(value = "/findId/verifyCode", method = RequestMethod.POST)
+	public ResponseEntity<?> verifyIdCode (@RequestParam String inputCode,
+											HttpSession session) throws Exception {
+		
+		String sessionCode = (String) session.getAttribute("findIdAuthCode");
+		
+		if(inputCode.equals(sessionCode)) {
+			session.setAttribute("findIdVerified", true);
+			return ResponseEntity.ok(Map.of("result", 1, "message", "인증 성공"));
+		} else {
+			return ResponseEntity.status(400).body(Map.of("result", 0, "message", "인증 실패"));
+		}
+		
+	}
+	
+	
+	// 로그인 회원 비밀번호 찾기 인증코드 발송 경로
+	@RequestMapping(value = "/findPw/sendCode", method = RequestMethod.POST)
+	public ResponseEntity<?> sendPwCode(@RequestParam String userMail, HttpSession session) {
+	    String code = emailService.createCode();
+	    EmailSendResult result = emailService.sendVerificationCode(userMail, code);
+
+	    if (result.isSuccess()) {
+	        session.setAttribute("findPwAuthCode", code);
+	        session.setAttribute("findPwEmail", userMail);
+	        return ResponseEntity.ok(Map.of("result", 1, "message", "인증코드를 이메일로 보냈습니다."));
+	    } else {
+	        return ResponseEntity.status(500).body(Map.of("result", 0, "message", "이메일 전송 실패"));
+	    }
+	}
+	
+	// 로그인 회원 비밀번호 찾기 인증코드 확인 경로
+	@RequestMapping(value = "/findPw/verifyCode", method = RequestMethod.POST)
+	public ResponseEntity<?> verifyPassCode(@RequestParam String inputCode, HttpSession session) {
+	    String sessionCode = (String) session.getAttribute("findPwAuthCode");
+
+	    if (inputCode.equals(sessionCode)) {
+	        session.setAttribute("findPwVerified", true);
+	        return ResponseEntity.ok(Map.of("result", 1, "message", "인증 성공"));
+	    } else {
+	        return ResponseEntity.status(400).body(Map.of("result", 0, "message", "인증 실패"));
+	    }
 	}
 
 }

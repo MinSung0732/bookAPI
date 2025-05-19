@@ -7,11 +7,11 @@
 <meta charset="UTF-8">
 <link href="/users/css/signUp.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>로그인</title>
+<title>책:고 - 로그인</title>
 </head>
 <body>
 	<script src="/users/js/signIn.js"></script>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="../util/header.jsp" />
 	<div id="container">
 		<div id=signIn class="signUp">
 			<img src="images/sublogo.png" class="sublogo">
@@ -25,8 +25,8 @@
 				<h4 class="signInCheck">로그인 유지</h4>
 			</div>
 			<div class="signInTexts">
-				<h4 class="signInText">아이디 찾기</h4>
-				<h4>비밀번호 찾기</h4>
+				<h4 class="signInText"><a href="/users/findId">아이디 찾기</a></h4>
+				<h4><a href="/users/findPw">비밀번호 찾기</a></h4>
 			</div>
 			<a href="/" class="block">
 				<button id="signInSubmit" class="btnStylePrimary btnStyleBottom">로그인</button>
@@ -36,7 +36,7 @@
 			</a>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="../util/footer.jsp" />
 
 </body>
 </html>

@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div id="container">
+		<jsp:include page="util/header.jsp" />
 		index<br>
 		<a href="/users/userMain">도서검색하기</a><br>
 		<c:choose>
@@ -42,7 +43,7 @@
 	    		</c:forEach>
 	    	</c:if>
     	</div>
-    	
+    	<jsp:include page="util/footer.jsp" />
 	</div>
 </body>
 </html>
