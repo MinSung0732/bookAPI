@@ -10,13 +10,10 @@
 </head>
 <body>
 	<header>
-<<<<<<< HEAD:src/main/webapp/WEB-INF/jsp/bookapi/users/header.jsp
 		<div class="hamburger">
 			<img src="images/hamburger.svg">
-=======
 		<div>
 			<img src="${pageContext.request.contextPath}/users/images/hamburger.svg">
->>>>>>> samusilMinsung:src/main/webapp/WEB-INF/jsp/bookapi/util/header.jsp
 		</div>
 		<div>
 			<a href="/"><img src="${pageContext.request.contextPath}/users/images/mainlogo1.svg"></a>
