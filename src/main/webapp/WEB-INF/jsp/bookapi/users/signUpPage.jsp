@@ -30,8 +30,10 @@
 			<h4>성명입력</h4>
 			<input type="text" name="userName" id="userName">
 			<h4>Email</h4>
+			
 			<input type="text" name="userMail" id="userMail" size="30"
 				class="eMailForward"> @
+			<input type="text" name="mail" id="mail" value="naver.com" readonly>
 			<div class="selectMailWrap">
 				<select name="selectMail" id="selectMail">
 					<option value="naver.com" selected>naver.com</option>
