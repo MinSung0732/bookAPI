@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>책읽는 고양이: 책고</title>
 </head>
 <body>
@@ -25,11 +26,11 @@
     	</c:choose>
     	
     	<ul class="tabs">
-    		<li><a href="/aladin/itemSearchPage?SearchTarget=Book">국내도서</a></li>
-    		<li><a href="/aladin/itemSearchPage?SearchTarget=eBook">전자책</a></li>
-    		<li><a href="/aladin/itemSearchPage?SearchTarget=Foreign">외국도서</a></li>
-    		<li><a href="/aladin/itemSearchPage?SearchTarget=Music">음반</a></li>
-    		<li><a href="/aladin/itemSearchPage?SearchTarget=DVD">DVD</a></li>
+    		<li><a href="/aladin/itemListPage?SearchTarget=Book">국내도서</a></li>
+    		<li><a href="/aladin/itemListPage?SearchTarget=eBook">전자책</a></li>
+    		<li><a href="/aladin/itemListPage?SearchTarget=Foreign">외국도서</a></li>
+    		<li><a href="/aladin/itemListPage?SearchTarget=Music">음반</a></li>
+    		<li><a href="/aladin/itemListPage?SearchTarget=DVD">DVD</a></li>
     	</ul>
     	
     	<div>

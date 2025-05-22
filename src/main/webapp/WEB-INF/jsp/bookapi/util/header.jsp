@@ -6,12 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <link href="/users/css/header.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 	<header>
 		<div class="hamburger">
-			<img src="images/hamburger.svg">
+			<img src="${pageContext.request.contextPath}/users/images/hamburger.svg">
 		<div>
 			<img src="${pageContext.request.contextPath}/users/images/hamburger.svg">
 		</div>
@@ -65,8 +66,10 @@
 	</aside>
 </body>
 <script>
-$('.hamburger').click(function () {
-	$('.side-bar').toggleClass('open');
-});
+	$(function () {
+		$('.hamburger').click(function () {
+			$('.side-bar').toggleClass('open');
+		});
+	});
 </script>
 </html>
