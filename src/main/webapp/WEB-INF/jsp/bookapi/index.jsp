@@ -37,9 +37,11 @@
 	    	<c:if test="${not empty bestSeller}">
 	    		<c:forEach var="book" items="${bestSeller}">
 	    			<div style="margin-bottom: 20px;">
-	    				<img src="${book.imageUrl}" width="100" height="150"/>
-	    				<div><strong>${book.title}</strong></div>
+	    				<a href="aladin/itemDetailPage?isbn13=${book.isbn13}"><img src="${book.imageUrl}" width="100" height="150"/>
+	    				<div><strong>${book.title}</strong></div></a>
 	    				<div>${book.author}</div>
+	    				<div>순위: ${book.item[0].bestRank}</div>
+	    				<div>순위관련정보: ${book.item[0].bestDuration}</div>
 	    			</div>
 	    		</c:forEach>
 	    	</c:if>

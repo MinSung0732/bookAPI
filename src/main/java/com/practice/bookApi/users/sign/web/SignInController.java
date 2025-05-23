@@ -68,9 +68,11 @@ public class SignInController {
 		System.out.println("signInController 진입 ==> successCheckLogin 사용");
 		
 		String userName = signInService.getUserName(userId);
+		long userNo = signInService.getUserNo(userId);
 		
 		session.setAttribute("Login", userId);
 		session.setAttribute("UserName", userName);
+		session.setAttribute("UserNo", userNo);
 		
 		if(autoLogin != null) {
 			int limitTime = 60*60*24*90;

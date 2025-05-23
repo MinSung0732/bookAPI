@@ -37,6 +37,10 @@ public class SignInService {
 		return userMapper.selectUserNameById(userId);
 	}
 	
+	public Long getUserNo(String userId) {
+	    return userMapper.findUserNoByUserId(userId); // MyBatis로 구현
+	}
+	
 	public void keepLogin(String sessionId, Date limitDate, String userId) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();

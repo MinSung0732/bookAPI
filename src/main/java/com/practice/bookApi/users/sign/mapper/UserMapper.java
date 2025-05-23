@@ -17,6 +17,7 @@ public interface UserMapper {
 	public UserDto getUserSessionId(String sessionId);
 	public void keepLogin(Map<String, Object>map);
 	String selectUserNameById(String userId);
+	long findUserNoByUserId(String userId);
 	int updatePassword(@Param("userId") String userId, @Param("newPw") String newPw);
 	public UserDto findIdByEmail(String userMail);
 	public UserDto findByIdAndEmail(@Param("userId") String userId,@Param("userMail") String userMail);
